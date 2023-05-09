@@ -28,8 +28,8 @@ function Letra(char,isDisabled,callback)
 {
     if(isDisabled)
     {
-            return (<button key={char} disabled className="letter-btn">{char.toUpperCase()}</button>);
+            return (<button data-test="letter" key={char} disabled className="letter-btn">{char.toUpperCase()}</button>);
     }
 
-   return (<button onClick={()=>callback()}  key={char} className="letter-btn">{char.toUpperCase()}</button>);
+   return (<button data-test="letter" onClick={()=>callback()}  key={char} className="letter-btn">{char.toUpperCase()}</button>);
 }
