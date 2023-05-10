@@ -1,6 +1,5 @@
 import Jogo from "./Jogo";
 import Letras from "./Letras";
-
 import { useState } from "react";
 import palavras from "./palavras";
 import Chute from "./Chute";
@@ -11,6 +10,12 @@ export default function App() {
     const [currentGameWord, setCurrentGameWord] = useState('');
     const [guessedLetters, setGuessedLetters] = useState(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]);
     const [hasWonGame, setWonGame] = useState(false);
+    
+    const removeDiacritics = require('diacritics').remove;
+
+    function isEqual(str1, str2) {
+        return removeDiacritics(str1.toLowerCase()) === removeDiacritics(str2.toLowerCase());
+    }
 
 
     function StartGame() {
@@ -30,7 +35,7 @@ export default function App() {
             ...guessedLetters,char
         ]);
 
-        setCurrentGameState(currentGameState + (currentGameWord.includes(char) ? 0 : 1 ))
+        setCurrentGameState(currentGameState + (removeDiacritics(currentGameWord).toLowerCase().includes(char) ? 0 : 1 ))
     }
 
 
@@ -43,10 +48,10 @@ export default function App() {
         let word = '';
 
         for (let index = 0; index < currentGameWord.length; index++) {
-            word += guessedLetters.includes(currentGameWord[index]) ? currentGameWord[index] : " _";
+            word += guessedLetters.includes(removeDiacritics(currentGameWord[index].toLowerCase())) ? currentGameWord[index] : " _";
         }
 
-        if(word == currentGameWord)
+        if(isEqual(word, currentGameWord))
         {
             setWonGame(true);
         }
@@ -64,8 +69,8 @@ export default function App() {
         {
             return;
         }
-        
-        if(word == currentGameWord)
+
+        if(isEqual(word, currentGameWord))
         {
             setWonGame(true);
         }
