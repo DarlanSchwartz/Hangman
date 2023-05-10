@@ -1,7 +1,9 @@
 import Jogo from "./Jogo";
 import Letras from "./Letras";
+
 import { useState } from "react";
 import palavras from "./palavras";
+import Chute from "./Chute";
 
 export default function App() {
     const [gameStarted, setGameStarted] = useState(false);
@@ -56,10 +58,28 @@ export default function App() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    function guessWord(word)
+    {
+        if(currentGameState == 6 || hasWonGame)
+        {
+            return;
+        }
+        
+        if(word == currentGameWord)
+        {
+            setWonGame(true);
+        }
+        else
+        {
+            setCurrentGameState(6);
+        }
+    }
+
     return (
         <div className="website">
             <Jogo onChange = {StartGame}  gameState={currentGameState} currentWord={getCurrentUnderlinedWord()} wonGame ={hasWonGame}  />
             <Letras guessedLettersArr = {guessedLetters} onChange = {(char) => addGuessedLetter(char)} gameState={currentGameState} isGameStarted={gameStarted} wonGame = {hasWonGame}/>
+            <Chute onChange = {(gword) => guessWord(gword)} wonGame ={hasWonGame}  gameState={currentGameState} isGameStarted={gameStarted}/>
         </div>
     );
 }

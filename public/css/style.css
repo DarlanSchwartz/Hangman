@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     box-sizing: border-box;
 }
 
-.choose-word-btn{
+.choose-word-btn {
     border: 0;
     width: 200px;
     height: 60px;
@@ -19,7 +19,7 @@
     color: rgba(255, 255, 255, 1);
 }
 
-.current-word{
+.current-word {
     font-family: 'Noto Sans', sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -31,7 +31,7 @@
     color: #000000;
 }
 
-.website{
+.website {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -39,14 +39,14 @@
     flex-direction: column;
 }
 
-.game{
+.game {
     display: flex;
     position: relative;
     width: 1025px;
     height: 566px;
 }
 
-.game img{
+.game img {
     position: absolute;
     left: 38px;
     top: 59px;
@@ -54,27 +54,28 @@
     height: 466.67px;
 }
 
-.choose-word-btn{
+.choose-word-btn {
     position: absolute;
     right: 53px;
     top: 89px;
 }
 
-.current-word{
+.current-word {
     position: absolute;
     right: 61px;
     top: 431px;
 }
 
-.letters-container{
+.letters-container {
     display: flex;
     width: 664px;
     height: 91px;
+    margin-top: 20px;
     flex-wrap: wrap;
     gap: 12px;
 }
 
-.letter-btn{
+.letter-btn {
     width: 40px;
     height: 40px;
     background: #E1ECF4;
@@ -89,21 +90,59 @@
     color: #39739D;
 }
 
-.letter-btn:disabled
-{
+.letter-btn:disabled {
     color: #798A9F;
     background: #9FAAB5;
     cursor: not-allowed;
 }
 
-.disabled-class{
-
-}
-
-.green-word{
+.green-word {
     color: green;
 }
 
-.red-word{
+.red-word {
     color: red;
+}
+
+.guess-word-container {
+    width: 624px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 56px;
+}
+
+.guess-word-container p {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.guess-word-container input {
+    width: 353px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.guess-word-container button
+{
+    width: 100px;
+    height: 40px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #3C76A1;
+    background: #E1ECF4;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
 }
