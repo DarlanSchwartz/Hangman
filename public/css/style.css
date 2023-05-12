@@ -6,6 +6,9 @@
 }
 
 .choose-word-btn {
+    position: absolute;
+    right: 53px;
+    top: 89px;
     border: 0;
     width: 200px;
     height: 60px;
@@ -17,6 +20,14 @@
     background: #27AE60;
     border-radius: 8px;
     color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+.choose-word-btn:hover{
+    border: 1px solid #27AE60;
+    background-color: white;
+    color: #27AE60;
 }
 
 .current-word {
@@ -54,12 +65,6 @@
     height: 466.67px;
 }
 
-.choose-word-btn {
-    position: absolute;
-    right: 53px;
-    top: 89px;
-}
-
 .current-word {
     position: absolute;
     right: 61px;
@@ -88,11 +93,23 @@
     line-height: 19px;
     text-align: center;
     color: #39739D;
+    cursor: pointer;
+    transition: all 200ms;
 }
 
-.letter-btn:disabled {
+.letter-btn:hover,.guess-word-container button:hover
+{
+    background-color: #39739D;
+    color: white;
+}
+
+.letter-btn:disabled,.guess-word-container button:disabled{
     color: #798A9F;
     background: #9FAAB5;
+    cursor: not-allowed;
+}
+
+.guess-word-container input:disabled{
     cursor: not-allowed;
 }
 
@@ -111,6 +128,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 56px;
+    margin-bottom: 56px;
 }
 
 .guess-word-container p {
@@ -145,4 +163,6 @@
     background: #E1ECF4;
     border: 1px solid #7AA7C7;
     border-radius: 3px;
+    cursor: pointer;
+    transition: all 200ms;
 }
